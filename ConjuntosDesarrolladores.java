@@ -89,6 +89,46 @@ public class ConjuntosDesarrolladores<E> {
 			return null;
 		}
 	
+	public void ordenAscendente(){
+		Set<String> setMasGrande = null;
+		
+		/*
+		int a = DesJava.size();
+		int b = DesiOS.size();
+		int c = DesAndroid.size();
+		if(a>b && a>c)
+			setMasGrande = (Set<String>) DesJava.iterator();
+		else if (b>a && b>c)
+			setMasGrande = (Set<String>) DesiOS.iterator();
+		else if (c>a && b>c)
+			setMasGrande = (Set<String>) DesAndroid.iterator();
+		else
+			setMasGrande = null;
+			*/
+		if (DesAndroid.size() > DesJava.size() && DesAndroid.size() > DesiOS.size()){
+			setMasGrande = (Set<String>) DesAndroid;
+		}else if (DesJava.size() > DesAndroid.size() && DesJava.size() > DesiOS.size()){
+			setMasGrande = (Set<String>) DesJava;
+		}else if (DesiOS.size() > DesAndroid.size() && DesiOS.size() > DesJava.size()){
+			setMasGrande = (Set<String>) DesiOS;
+		}
+		
+		if(setMasGrande != null){
+			Iterator<String> itr = setMasGrande.iterator();
+			Object[] desarrolladores = new Object[setMasGrande.size()];
+			int contador = 0;
+			while (itr.hasNext()){
+				Object element = itr.next();
+				desarrolladores[contador] = element;
+				contador++;
+			}
+			System.out.println("Los nombres de los desarrolladores del conjunto mas en orden ascendente son:");
+			for (int i = desarrolladores.length-1; i > -1 ; i--){
+				System.out.println(desarrolladores[i]);
+			}
+		}
+
+	}
 		
 	
 }

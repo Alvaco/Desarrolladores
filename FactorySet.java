@@ -15,14 +15,18 @@ public class FactorySet <E> {
 	 */
 	public Set<E> getSet(String entry){
 		if (entry.equals("TS")){
-			System.out.println("Entro TS");
+			//System.out.println("Entro TS");
 			return new TreeSet<E>();
 		}
-		else if (entry.equals("HS"))
+		else if (entry.equals("HS")){
+			//System.out.println("Entro HS");
 			return new HashSet<E>();
+		}
 		
-		else if (entry.equals("LHS"))
+		else if (entry.equals("LHS")){
+			//System.out.println("Entro LHS");
 			return new LinkedHashSet<E>();
+		}
 		else
 			return null;
 		}
