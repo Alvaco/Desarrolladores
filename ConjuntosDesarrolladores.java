@@ -1,5 +1,9 @@
 import java.util.Set;
 
+/**
+ * @author Ivette Cardona 16020
+ * @author Alejandro 
+ */
 
 public class ConjuntosDesarrolladores<E> {
 	private Set<E> DesJava;
