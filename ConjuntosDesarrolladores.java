@@ -8,7 +8,7 @@ public class ConjuntosDesarrolladores<E> {
 	private Set<E> DesiOS;
 	private Set<E> DesAndroid;
 	
-	
+	//Constructor
 	public ConjuntosDesarrolladores(String entry){
 		FactorySet sfactory = new FactorySet();
 		DesJava = sfactory.getSet(entry);
@@ -16,6 +16,11 @@ public class ConjuntosDesarrolladores<E> {
 		DesiOS = sfactory.getSet(entry);
 		}
 	
+	//Se guarda el nombre ingresado por el usuario en el main, dependiendo del conjunto de desarrolladores
+	/**
+	 * @param seleccion
+	 * @param name
+	 */
 	public void agregarDesarrollador(int seleccion, E name){
 		if (seleccion == 1)
 			DesJava.add(name);
@@ -42,26 +47,39 @@ public class ConjuntosDesarrolladores<E> {
 		}
 	}
 	
+	//Desarrolladores con experiencia en Java, Android y iOS
+	/**
+	 * @return desTodo: interseccion
+	 */
 	public Set<E> expEnLosTres(){
 		Set<E> desTodo = DesJava;
 		desTodo.retainAll(DesAndroid);
 		desTodo.retainAll(DesiOS);
 		return desTodo;
 	}
-	
+
+	/**
+	 * @return Desarrolladores con experiencia en Java pero que no tengan experiencia en Android
+	 */
 	public Set<E> expJavaNoAndroid(){
 		Set<E> desJavaNoAndroid = DesJava;
 		desJavaNoAndroid.removeAll(DesAndroid);
 		return desJavaNoAndroid;
 	}
 	
+	/**
+	 * @return Desarrolladores con experiencia en Android y iOS pero que no tengan experiencia en Java
+	 */
 	public Set<E> expiOSandAndroid(){
 		Set<E> desiOSandAndroid = DesiOS;
 		desiOSandAndroid.retainAll(DesAndroid);
 		desiOSandAndroid.removeAll(DesJava);
 		return desiOSandAndroid;
 	}
-	
+
+	/**
+	 * @return Desarrolladores con experiencia en Android o iOS pero que no tengan experiencia en Java
+	 */
 	public Set<E> expiOSorAndroid(){
 		Set<E> desiOSorAndroid = DesiOS;
 		desiOSorAndroid.addAll(DesAndroid);
@@ -69,6 +87,9 @@ public class ConjuntosDesarrolladores<E> {
 		return desiOSorAndroid;
 	}
 	
+	/**
+	 * @return conjunto de desarrolladores Java es un subconjunto de Desarrolladores Android
+	 */
 	public String javaSubConjAndroid(){
 		if(DesAndroid.containsAll(DesJava)== true)
 			return "Si";
@@ -76,6 +97,9 @@ public class ConjuntosDesarrolladores<E> {
 			return "No";
 	}
 	
+	/**
+	 * @return El conjunto que tenga la cantidad más grande de desarrolladores (con nombres)
+	 */
 	public Iterator<E> nombresConjuntoMayor(){
 		int a = DesJava.size();
 		int b = DesiOS.size();
@@ -90,6 +114,7 @@ public class ConjuntosDesarrolladores<E> {
 			return null;
 		}
 	
+	//Del conjunto que tenga la mayor cantidad de desarrolladores, desplegar la lista de los nombres de sus integrantes en orden ascendente
 	public void ordenAscendente(){
 		Set<String> orden = new TreeSet<String>();
 		
@@ -112,7 +137,7 @@ public class ConjuntosDesarrolladores<E> {
 				orden.add((String) element);
 			}
 		}
-		System.out.println("Datos ordenados del conjunto con mas datos");
+		System.out.println("Orden ascendente del grupo de desarrolladores con mas datos: ");
 		System.out.println(orden);
 	}			
 }

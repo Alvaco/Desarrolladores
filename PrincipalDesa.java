@@ -23,6 +23,8 @@ public class PrincipalDesa {
 		try{
 			 //Bienvenida
 			 System.out.println("Bienvenido");
+			 System.out.println("Instrucciones: por favor solo ingrese el entero correspondiente"
+			 		+ "a la accion que desee realizar");
 			 
 			 //Elegir que Set 
 			 System.out.println("Elige que deseas usar:\n1.- TreeSet" +
