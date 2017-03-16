@@ -1,5 +1,6 @@
 import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
 
 
 public class ConjuntosDesarrolladores<E> {
@@ -90,45 +91,28 @@ public class ConjuntosDesarrolladores<E> {
 		}
 	
 	public void ordenAscendente(){
-		Set<String> setMasGrande = null;
+		Set<String> orden = new TreeSet<String>();
 		
-		/*
-		int a = DesJava.size();
-		int b = DesiOS.size();
-		int c = DesAndroid.size();
-		if(a>b && a>c)
-			setMasGrande = (Set<String>) DesJava.iterator();
-		else if (b>a && b>c)
-			setMasGrande = (Set<String>) DesiOS.iterator();
-		else if (c>a && b>c)
-			setMasGrande = (Set<String>) DesAndroid.iterator();
-		else
-			setMasGrande = null;
-			*/
-		if (DesAndroid.size() > DesJava.size() && DesAndroid.size() > DesiOS.size()){
-			setMasGrande = (Set<String>) DesAndroid;
-		}else if (DesJava.size() > DesAndroid.size() && DesJava.size() > DesiOS.size()){
-			setMasGrande = (Set<String>) DesJava;
-		}else if (DesiOS.size() > DesAndroid.size() && DesiOS.size() > DesJava.size()){
-			setMasGrande = (Set<String>) DesiOS;
-		}
+		int androides = DesAndroid.size();
+		int javades = DesJava.size();
+		int iosdes = DesiOS.size();
 		
-		if(setMasGrande != null){
-			Iterator<String> itr = setMasGrande.iterator();
-			Object[] desarrolladores = new Object[setMasGrande.size()];
-			int contador = 0;
-			while (itr.hasNext()){
-				Object element = itr.next();
-				desarrolladores[contador] = element;
-				contador++;
-			}
-			System.out.println("Los nombres de los desarrolladores del conjunto mas en orden ascendente son:");
-			for (int i = desarrolladores.length-1; i > -1 ; i--){
-				System.out.println(desarrolladores[i]);
+		if(androides > javades && javades >= iosdes || iosdes >= javades){
+			for(E element: DesAndroid){
+				orden.add((String) element);
 			}
 		}
-
-	}
-		
-	
+		else if(javades > androides && androides >= iosdes || iosdes >= androides){
+			for(E element: DesJava){
+				orden.add((String) element);
+			}
+		}
+		else if(iosdes > androides && androides >= javades || javades >= androides){
+			for(E element: DesiOS){
+				orden.add((String) element);
+			}
+		}
+		System.out.println("Datos ordenados del conjunto con mas datos");
+		System.out.println(orden);
+	}			
 }
