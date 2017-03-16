@@ -152,6 +152,7 @@ public class PrincipalDesa {
 							//Obtener la respuesta del usuario
 							seleccion = Integer.parseInt(sc.nextLine());
 						}
+						break;
 						
 				case 2: 
 					//El usuario eligio ver incisos
