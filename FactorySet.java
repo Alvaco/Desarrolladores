@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 /**
  * @author Ivette Cardona 16020
- * @author Alejandro 
+ * @author Alejandro Vásquez 09284
  */
 
 public class FactorySet <E> {
