@@ -2,6 +2,10 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ * @author Ivette Cardona 16020
+ * @author Alejandro Vásquez 09284
+ */
 
 public class ConjuntosDesarrolladores<E> {
 	private Set<E> DesJava;
